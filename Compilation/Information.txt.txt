@@ -1,0 +1,13 @@
+Students ids:
+1. 321354177
+2. 311201974
+
+Students names:
+1. Stanislav Chernetski
+2. Koral Shimoni
+
+Operating system:
+Windows XP - 32Bit
+
+Development enviroment:
+Visual Studio 10
