@@ -1971,7 +1971,7 @@ void clear_vector()
 }
 
 
-/*
+/*lol
 Sentence = token token Variable Variable
 while(1)
 {

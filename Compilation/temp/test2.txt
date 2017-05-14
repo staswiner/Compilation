@@ -1,0 +1,12 @@
+task project2 begin
+	integer x1;
+	integer x2;
+	real temp
+	{
+		x1 = 5;
+		do
+			x1 = x1 + 1; x1 = x2 + 2
+		until (x1 < 10) od;
+		send project1.signal_15(x1*2)
+	}
+end;

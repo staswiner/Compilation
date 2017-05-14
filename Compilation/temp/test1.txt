@@ -1,0 +1,11 @@
+task project1 begin
+	real value_1; real value_2;
+	integer i
+	{
+		do
+			value_1 = value_2 + 1;
+			send signal_1.project3(value_2)
+		until (value_1 == 10) od;
+		accept signal_15(integer result)
+	}
+end;
