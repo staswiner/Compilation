@@ -18,6 +18,36 @@
     <ClCompile Include="lex.yy.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tTask_Definitions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tCommand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tCommands.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tCondition.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tDeclaration.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tDeclarations.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tExpression.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tParam_List.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tProgram.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tTask_Definition.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Test.l">
@@ -26,5 +56,10 @@
     <None Include="Information.txt.txt">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

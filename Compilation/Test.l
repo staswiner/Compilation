@@ -16,7 +16,8 @@
 #define VECTOR_FREE(vec) vector_free(&vec)
 int line = 1;
  FILE* testOut;
-
+ int yywrap()
+{ return 1; }
 
 
 enum Token {
@@ -111,73 +112,56 @@ accept							{fprintf(testOut,"Token from type 'accept'			was found at line: %d,
 "\t"							{}
 .        {fprintf(testOut,"The character '%s' at line: %d does not begin any legal token in the language.\n",yytext, line);return 50;}
 %%
-typedef struct ToKen {
-	char* a;
-	int type;
-	int line;
-} ToKen;
 
-typedef struct vector {
-    ToKen **items;
-    int capacity;
-    int total;
-} vector;
+void InitializeGrammer();
 
-void vector_init(vector *);
-int vector_total(vector *);
-static void vector_resize(vector *, int);
-void vector_add(vector *, char *);
-void vector_set(vector *, int, char *);
-char *vector_get(vector *, int);
-void vector_delete(vector *, int);
-void vector_free(vector *);
 
-void vector_init(vector *v)
+void vector_init(TokenVector *v)
 {
     v->capacity = VECTOR_INIT_CAPACITY;
     v->total = 0;
-    v->items = malloc(sizeof(ToKen *) * v->capacity);
+    v->items = malloc(sizeof(Token *) * v->capacity);
 }
 
-int vector_total(vector *v)
+int vector_total(TokenVector *v)
 {
     return v->total;
 }
 
-static void vector_resize(vector *v, int capacity)
+static void vector_resize(TokenVector *v, int capacity)
 {
     #ifdef DEBUG_ON
     printf("vector_resize: %d to %d\n", v->capacity, capacity);
     #endif
 
-    void **items = realloc(v->items, sizeof(ToKen *) * capacity);
+    void **items = realloc(v->items, sizeof(Token *) * capacity);
     if (items) {
         v->items = items;
         v->capacity = capacity;
     }
 }
 
-void vector_add(vector *v, ToKen *item)
+void vector_add(TokenVector *v, Token *item)
 {
     if (v->capacity == v->total)
         vector_resize(v, v->capacity * 2);
     v->items[v->total++] = item;
 }
 
-void vector_set(vector *v, int index, ToKen *item)
+void vector_set(TokenVector *v, int index, Token *item)
 {
     if (index >= 0 && index < v->total)
         v->items[index] = item;
 }
 
-char *vector_get(vector *v, int index)
+char *vector_get(TokenVector *v, int index)
 {
     if (index >= 0 && index < v->total)
         return v->items[index];
     return NULL;
 }
 
-void vector_delete(vector *v, int index)
+void vector_delete(TokenVector *v, int index)
 {
 int i = 0;
     if (index < 0 || index >= v->total)
@@ -196,12 +180,12 @@ int i = 0;
         vector_resize(v, v->capacity / 2);
 }
 
-void vector_free(vector *v)
+void vector_free(TokenVector *v)
 {
     free(v->items);
 }
 
-vector Tokens;
+TokenVector Tokens;
 int i = -1;
 int maxi = -1;
 
@@ -209,7 +193,7 @@ void create_and_store_token(char* s, int type, int line)
 {
 	int Len = (strlen(s)+1);
 
-	ToKen* t = (ToKen*)calloc(1, sizeof(ToKen));
+	Token* t = (Token*)calloc(1, sizeof(Token));
 	t->type = type;
 	t->line = line;
 	t->a = (char*)calloc(Len,sizeof(char));
@@ -222,7 +206,7 @@ char* next_token()
 	int type;
 	i++;
 
-	if (maxi < i)
+	if (i > Tokens.total)
 	{
 		type = yylex();
 
@@ -230,8 +214,6 @@ char* next_token()
 		{
 			return NULL;
 		}
-		maxi = i;
-		create_and_store_token(yytext,type, line);		
 	}
 
 	return vector_get(&Tokens, i);
@@ -261,10 +243,10 @@ void clear_vector()
 void main()
 {
  FILE* testIn; 
- ToKen* Token;
+ Token* token;
  int choice;
-
  vector_init(&Tokens);
+ printf("Legit too autistic to get a job, so i check compilation homework\n");
 
  printf("choose file: 1 or 2:\n");
  scanf("%d",&choice);

@@ -16,6 +16,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lex.yy.c" />
+    <ClCompile Include="tCommand.c" />
+    <ClCompile Include="tCommands.c" />
+    <ClCompile Include="tCondition.c" />
+    <ClCompile Include="tDeclaration.c" />
+    <ClCompile Include="tDeclarations.c" />
+    <ClCompile Include="tExpression.c" />
+    <ClCompile Include="tParam_List.c" />
+    <ClCompile Include="tProgram.c" />
+    <ClCompile Include="tTask_Definition.c" />
+    <ClCompile Include="tTask_Definitions.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D17018C8-9F34-41F9-9EAF-D4A7B8B19D1A}</ProjectGuid>
@@ -26,7 +39,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
