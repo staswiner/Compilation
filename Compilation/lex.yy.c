@@ -480,52 +480,16 @@ char *yytext_ptr;
 #define VECTOR_DELETE(vec, id) vector_delete(&vec, id)
 #define VECTOR_TOTAL(vec) vector_total(&vec)
 #define VECTOR_FREE(vec) vector_free(&vec)
-int line = 1;
  FILE* testOut;
+ line = 1;
  int yywrap()
 { return 1; }
 
 
-enum eToken {
-ParBegin = 1,
-ParEnd,
-Task,
-Begin,
-End,
-Integer,
-Real,
-Do,
-Until,
-Od,
-Send,
-Accept,
-arOp,
-relOp,
-add,
-substract,
-multiply,
-devide,
-lessthan,
-morethan,
-lessorequal,
-moreorequal,
-equal,
-notequal,
-ID,
-Number,
-Colon,
-SemiColon,
-OR,
-assign,
-dot,
-OpenRBracket,
-CloseRBracket,
-OpenCBracket,
-EndCBracket,
-}; 
+
 
 /* reserved words */
-#line 528 "lex.yy.c"
+//#line 528 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -678,7 +642,7 @@ YY_DECL
 
 //#line 84 "Test.l"
 
-#line 681 "lex.yy.c"
+//#line 681 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -766,185 +730,214 @@ find_rule: /* we branch to this label when backing up */
 
 do_action:	/* This label is used only to access EOF actions. */
 
-
-		switch ( yy_act )
+#define StasPrint(_out,_line,_yytext,_type) \
+		fprintf(_out,"Token from type '"#_type"' was found at line: %d, lexeme: '%s'\n",_line,_yytext); \
+		printf("Token from type '"#_type"' was found at line: %d, lexeme: '%s' |", _line, _yytext);
+switch ( yy_act )
 	{ /* beginning of action switch */
-case 1:
-YY_RULE_SETUP
-//#line 85 "Test.l"
-{fprintf(testOut,"Token from type 'parend'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, ParEnd, line);	return ParEnd;}
+	case 1:
+	YY_RULE_SETUP
+	//#line 85 "Test.l"
+	{
+		StasPrint(testOut, line, yytext, ParEnd)
+		create_and_store_token(yytext, ParEnd, line);	return ParEnd;}
+		YY_BREAK
+	case 2:
+	YY_RULE_SETUP
+	//#line 86 "Test.l"
+	{ 
+	StasPrint(testOut, line, yytext, Task)
+	create_and_store_token(yytext, Task, line); return Task;}
+		YY_BREAK
+	case 3:
+	YY_RULE_SETUP
+	//#line 87 "Test.l"
+	{ StasPrint(testOut, line, yytext, ParBegin)
+
+	create_and_store_token(yytext, ParBegin, line); return ParBegin;}
+		YY_BREAK
+	case 4:
+	YY_RULE_SETUP
+	//#line 88 "Test.l"
+	{ StasPrint(testOut, line, yytext, Begin)
+
+	create_and_store_token(yytext, Begin, line); return Begin;}
+		YY_BREAK
+	case 5:
+	YY_RULE_SETUP
+	//#line 89 "Test.l"
+	{ StasPrint(testOut, line, yytext, End)
+
+	create_and_store_token(yytext, End, line); return End;}
+		YY_BREAK
+	case 6:
+	YY_RULE_SETUP
+	//#line 90 "Test.l"
+	{ StasPrint(testOut, line, yytext, Integer)
+
+	create_and_store_token(yytext, Integer, line); return Integer;}
+		YY_BREAK
+	case 7:
+	YY_RULE_SETUP
+	//#line 91 "Test.l"
+	{ StasPrint(testOut, line, yytext, Real)
+
+	create_and_store_token(yytext, Real, line); return Real;}
+		YY_BREAK
+	case 8:
+	YY_RULE_SETUP
+	//#line 92 "Test.l"
+	{ StasPrint(testOut, line, yytext, Do)
+
+	create_and_store_token(yytext, Do, line); return Do;}
+		YY_BREAK
+	case 9:
+	YY_RULE_SETUP
+	//#line 93 "Test.l"
+	{ StasPrint(testOut, line, yytext, Until)
+
+	create_and_store_token(yytext, Until, line); return Until;}
+		YY_BREAK
+	case 10:
+	YY_RULE_SETUP
+	//#line 94 "Test.l"
+	{ StasPrint(testOut, line, yytext, Od)
+
+	create_and_store_token(yytext, Od, line); return Od;}
+		YY_BREAK
+	case 11:
+	YY_RULE_SETUP
+	//#line 95 "Test.l"
+	{ StasPrint(testOut, line, yytext, Send)
+
+	create_and_store_token(yytext, Send, line); return Send;}
+		YY_BREAK
+	case 12:
+	YY_RULE_SETUP
+	//#line 96 "Test.l"
+	{ StasPrint(testOut, line, yytext, Accept)
+
+	create_and_store_token(yytext, Accept, line); return Accept;}
+		YY_BREAK
+	case 13:
+	YY_RULE_SETUP
+	//#line 97 "Test.l"
+	{ StasPrint(testOut, line, yytext, arOp)
+
+	create_and_store_token(yytext, arOp, line); return arOp;}
+		YY_BREAK
+	case 14:
+	YY_RULE_SETUP
+	//#line 98 "Test.l"
+	{ 
+		StasPrint(testOut, line, yytext, relOp)
+	create_and_store_token(yytext, relOp, line); return relOp;}
+		YY_BREAK
+	case 15:
+	YY_RULE_SETUP
+	//#line 99 "Test.l"
+	{ StasPrint(testOut, line, yytext, assign)
+
+	create_and_store_token(yytext, assign, line); return assign;}
+		YY_BREAK
+	case 16:
+	YY_RULE_SETUP
+	//#line 100 "Test.l"
+	{ StasPrint(testOut, line, yytext, OR)
+
+	create_and_store_token(yytext, OR, line); return OR;}
+		YY_BREAK
+	case 17:
+	YY_RULE_SETUP
+	//#line 101 "Test.l"
+	{ StasPrint(testOut, line, yytext, ID)
+
+	create_and_store_token(yytext, ID, line); return ID;}
+		YY_BREAK
+	case 18:
+	YY_RULE_SETUP
+	//#line 102 "Test.l"
+	{ StasPrint(testOut, line, yytext, Number)
+
+	create_and_store_token(yytext, Number, line); return Number;}
+		YY_BREAK
+	case 19:
+	YY_RULE_SETUP
+	//#line 103 "Test.l"
+	{ StasPrint(testOut, line, yytext, Colon)
+
+	create_and_store_token(yytext, Colon, line); return Colon;}
+		YY_BREAK
+	case 20:
+	YY_RULE_SETUP
+	//#line 104 "Test.l"
+	{ StasPrint(testOut, line, yytext, dot)
+
+	create_and_store_token(yytext, dot, line); return dot;}
+		YY_BREAK
+	case 21:
+	YY_RULE_SETUP
+	//#line 105 "Test.l"
+	{ StasPrint(testOut, line, yytext, SemiColon)
+
+	create_and_store_token(yytext, SemiColon, line); return SemiColon;}
+		YY_BREAK
+	case 22:
+	YY_RULE_SETUP
+	//#line 106 "Test.l"
+	{ StasPrint(testOut, line, yytext, OpenRBracket)
+
+	create_and_store_token(yytext, OpenRBracket, line); return OpenRBracket;}
+		YY_BREAK
+	case 23:
+	YY_RULE_SETUP
+	//#line 107 "Test.l"
+	{ StasPrint(testOut, line, yytext, CloseRBracket)
+
+	create_and_store_token(yytext, CloseRBracket, line); return CloseRBracket;}
+		YY_BREAK
+	case 24:
+	YY_RULE_SETUP
+	//#line 108 "Test.l"
+	{ StasPrint(testOut, line, yytext, OpenCBracket)
+
+	create_and_store_token(yytext, OpenCBracket, line); return OpenCBracket;}
+		YY_BREAK
+	case 25:
+	YY_RULE_SETUP
+	//#line 109 "Test.l"
+	{ StasPrint(testOut, line, yytext, EndCBracket)
+
+	create_and_store_token(yytext, EndCBracket, line); return EndCBracket;}
+		YY_BREAK
+	case 26:
+	YY_RULE_SETUP
+	//#line 110 "Test.l"
+	{line++;}
+		YY_BREAK
+	case 27:
+	YY_RULE_SETUP
+	//#line 111 "Test.l"
+	{}
+		YY_BREAK
+	case 28:
+	YY_RULE_SETUP
+	//#line 112 "Test.l"
+	{}
+		YY_BREAK
+	case 29:
+	YY_RULE_SETUP
+	//#line 113 "Test.l"
+	{ fprintf(testOut,"The character '%s' at line: %d does not begin any legal token in the language.",yytext, line); 
+	printf("The character '%s' at line: %d does not begin any legal token in the language.",yytext, line);
+	create_and_store_token(yytext, 50, line); return 50; }
+		YY_BREAK
+	case 30:
+	YY_RULE_SETUP
+	//#line 114 "Test.l"
+	ECHO;
 	YY_BREAK
-case 2:
-YY_RULE_SETUP
-//#line 86 "Test.l"
-{fprintf(testOut,"Token from type 'task'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Task, line); return Task;}
-	YY_BREAK
-case 3:
-YY_RULE_SETUP
-//#line 87 "Test.l"
-{fprintf(testOut,"Token from type 'parbegin'		was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, ParBegin, line); return ParBegin;}
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-//#line 88 "Test.l"
-{fprintf(testOut,"Token from type 'begin'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Begin, line); return Begin;}
-	YY_BREAK
-case 5:
-YY_RULE_SETUP
-//#line 89 "Test.l"
-{fprintf(testOut,"Token from type 'end'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, End, line); return End;}
-	YY_BREAK
-case 6:
-YY_RULE_SETUP
-//#line 90 "Test.l"
-{fprintf(testOut,"Token from type 'integer'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Integer, line); return Integer;}
-	YY_BREAK
-case 7:
-YY_RULE_SETUP
-//#line 91 "Test.l"
-{fprintf(testOut,"Token from type 'real'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Real, line); return Real;}
-	YY_BREAK
-case 8:
-YY_RULE_SETUP
-//#line 92 "Test.l"
-{fprintf(testOut,"Token from type 'do'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Do, line); return Do;}
-	YY_BREAK
-case 9:
-YY_RULE_SETUP
-//#line 93 "Test.l"
-{fprintf(testOut,"Token from type 'until'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Until, line); return Until;}
-	YY_BREAK
-case 10:
-YY_RULE_SETUP
-//#line 94 "Test.l"
-{fprintf(testOut,"Token from type 'od'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Od, line); return Od;}
-	YY_BREAK
-case 11:
-YY_RULE_SETUP
-//#line 95 "Test.l"
-{fprintf(testOut,"Token from type 'send'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Send, line); return Send;}
-	YY_BREAK
-case 12:
-YY_RULE_SETUP
-//#line 96 "Test.l"
-{fprintf(testOut,"Token from type 'accept'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Accept, line); return Accept;}
-	YY_BREAK
-case 13:
-YY_RULE_SETUP
-//#line 97 "Test.l"
-{fprintf(testOut,"Token from type 'ar-op'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, arOp, line); return arOp;}
-	YY_BREAK
-case 14:
-YY_RULE_SETUP
-//#line 98 "Test.l"
-{fprintf(testOut,"Token from type 'rel-op'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, relOp, line); return relOp;}
-	YY_BREAK
-case 15:
-YY_RULE_SETUP
-//#line 99 "Test.l"
-{fprintf(testOut,"Token from type 'assign'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, assign, line); return assign;}
-	YY_BREAK
-case 16:
-YY_RULE_SETUP
-//#line 100 "Test.l"
-{fprintf(testOut,"Token from type 'or'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, OR, line); return OR;}
-	YY_BREAK
-case 17:
-YY_RULE_SETUP
-//#line 101 "Test.l"
-{fprintf(testOut,"Token from type 'ID'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, ID, line); return ID;}
-	YY_BREAK
-case 18:
-YY_RULE_SETUP
-//#line 102 "Test.l"
-{fprintf(testOut,"Token from type 'Number'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Number, line); return Number;}
-	YY_BREAK
-case 19:
-YY_RULE_SETUP
-//#line 103 "Test.l"
-{fprintf(testOut,"Token from type 'Colon'			was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, Colon, line); return Colon;}
-	YY_BREAK
-case 20:
-YY_RULE_SETUP
-#line 104 "Test.l"
-{fprintf(testOut,"Token from type 'dot'				was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, dot, line); return dot;}
-	YY_BREAK
-case 21:
-YY_RULE_SETUP
-#line 105 "Test.l"
-{fprintf(testOut,"Token from type 'semiColon'		was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, SemiColon, line); return SemiColon;}
-	YY_BREAK
-case 22:
-YY_RULE_SETUP
-#line 106 "Test.l"
-{fprintf(testOut,"Token from type 'OpenRBracket'	was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, OpenRBracket, line); return OpenRBracket;}
-	YY_BREAK
-case 23:
-YY_RULE_SETUP
-#line 107 "Test.l"
-{fprintf(testOut,"Token from type 'CloseRBracket'	was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, CloseRBracket, line); return CloseRBracket;}
-	YY_BREAK
-case 24:
-YY_RULE_SETUP
-#line 108 "Test.l"
-{fprintf(testOut,"Token from type 'OpenCBracket'	was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, OpenCBracket, line); return OpenCBracket;}
-	YY_BREAK
-case 25:
-YY_RULE_SETUP
-#line 109 "Test.l"
-{fprintf(testOut,"Token from type 'EndCBracket'		was found at line: %d, lexeme: '%s'\n",line,yytext);
-create_and_store_token(yytext, EndCBracket, line); return EndCBracket;}
-	YY_BREAK
-case 26:
-YY_RULE_SETUP
-#line 110 "Test.l"
-{line++;}
-	YY_BREAK
-case 27:
-YY_RULE_SETUP
-#line 111 "Test.l"
-{}
-	YY_BREAK
-case 28:
-YY_RULE_SETUP
-#line 112 "Test.l"
-{}
-	YY_BREAK
-case 29:
-YY_RULE_SETUP
-#line 113 "Test.l"
-{fprintf(testOut,"The character '%s' at line: %d does not begin any legal token in the language.\n",yytext, line);return 50;}
-	YY_BREAK
-case 30:
-YY_RULE_SETUP
-#line 114 "Test.l"
-ECHO;
-	YY_BREAK
-#line 922 "lex.yy.c"
+	//#line 922 "lex.yy.c"
 			case YY_STATE_EOF(INITIAL):
 				yyterminate();
 
@@ -1834,20 +1827,20 @@ int main()
 
 void InitializeGrammer();
 
-
+#pragma region TokenVector
 void vector_init(TokenVector *v)
 {
     v->capacity = VECTOR_INIT_CAPACITY;
-    v->total = 0;
+    v->count = 0;
     v->items = malloc(sizeof(Token *) * v->capacity);
 }
 
 int vector_total(TokenVector *v)
 {
-    return v->total;
+    return v->count;
 }
 
-static void vector_resize(TokenVector *v, int capacity)
+void vector_resize(TokenVector *v, int capacity)
 {
     #ifdef DEBUG_ON
     printf("vector_resize: %d to %d\n", v->capacity, capacity);
@@ -1862,20 +1855,20 @@ static void vector_resize(TokenVector *v, int capacity)
 
 void vector_add(TokenVector *v, Token *item)
 {
-    if (v->capacity == v->total)
+    if (v->capacity == v->count)
         vector_resize(v, v->capacity * 2);
-    v->items[v->total++] = item;
+    v->items[v->count++] = item;
 }
 
 void vector_set(TokenVector *v, int index, Token *item)
 {
-    if (index >= 0 && index < v->total)
+    if (index >= 0 && index < v->count)
         v->items[index] = item;
 }
 
 char *vector_get(TokenVector *v, int index)
 {
-    if (index >= 0 && index < v->total)
+    if (index >= 0 && index < v->count)
         return v->items[index];
     return NULL;
 }
@@ -1883,19 +1876,19 @@ char *vector_get(TokenVector *v, int index)
 void vector_delete(TokenVector *v, int index)
 {
 int i = 0;
-    if (index < 0 || index >= v->total)
+    if (index < 0 || index >= v->count)
         return;
 
     v->items[index] = NULL;
 	
-    for (i = 0; i < v->total - 1; i++) {
+    for (i = 0; i < v->count - 1; i++) {
         v->items[i] = v->items[i + 1];
         v->items[i + 1] = NULL;
     }
 
-    v->total--;
+    v->count--;
 
-    if (v->total > 0 && v->total == v->capacity / 4)
+    if (v->count > 0 && v->count == v->capacity / 4)
         vector_resize(v, v->capacity / 2);
 }
 
@@ -1904,28 +1897,334 @@ void vector_free(TokenVector *v)
     free(v->items);
 }
 
-TokenVector Tokens;
-int i = -1;
-int maxi = -1;
-
-void create_and_store_token(char* s, int type, int line)
+void clear_vector()
 {
-	int Len = (strlen(s)+1);
+	int i;
+	for (i = 0; i < Tokens.count; i++)
+	{
+		free(Tokens.items[i]->a);
+		free(Tokens.items[i]);
+	}
+	vector_free(&Tokens);
+}
+#pragma endregion
+#pragma region SentenceVector
+void vector_init2(Sentence *v)
+{
+	v->capacity = VECTOR_INIT_CAPACITY;
+	v->count = 0;
+	v->words = malloc(sizeof(Word *) * v->capacity);
+}
 
-	Token* t = (Token*)calloc(1, sizeof(Token));
-	t->type = type;
-	t->line = line;
-	t->a = (char*)calloc(Len,sizeof(char));
-	strcpy(t->a,s);
-	vector_add(&Tokens, t);
+int vector_total2(Sentence *v)
+{
+	return v->count;
+}
+
+void vector_resize2(Sentence *v, int capacity)
+{
+#ifdef DEBUG_ON
+	printf("vector_resize: %d to %d\n", v->capacity, capacity);
+#endif
+
+	void **items = realloc(v->words, sizeof(Word *) * capacity);
+	if (items) {
+		v->words = items;
+		v->capacity = capacity;
+	}
+}
+
+void vector_add2(Sentence *v, Word *item)
+{
+	if (v->capacity == v->count)
+		vector_resize(v, v->capacity * 2);
+	v->words[v->count++] = item;
+}
+
+void vector_set2(Sentence *v, int index, Word *item)
+{
+	if (index >= 0 && index < v->count)
+		v->words[index] = item;
+}
+
+char *vector_get2(Sentence *v, int index)
+{
+	if (index >= 0 && index < v->count)
+		return v->words[index];
+	return NULL;
+}
+
+void vector_delete2(Sentence *v, int index)
+{
+	int i = 0;
+	if (index < 0 || index >= v->count)
+		return;
+
+	v->words[index] = NULL;
+
+	for (i = 0; i < v->count - 1; i++) {
+		v->words[i] = v->words[i + 1];
+		v->words[i + 1] = NULL;
+	}
+
+	v->count--;
+
+	if (v->count > 0 && v->count == v->capacity / 4)
+		vector_resize(v, v->capacity / 2);
+}
+
+void vector_free2(Sentence *v)
+{
+	free(v->words);
+}
+
+void clear_vector2(Sentence *sentence)
+{
+	int i;
+	for (i = 0; i < Tokens.count; i++)
+	{
+		free(Tokens.items[i]->a);
+		free(Tokens.items[i]);
+	}
+	vector_free(sentence);
+}
+#pragma endregion 
+int i = 0;
+int maxi = -1;
+#pragma region Huge Initialization
+char* SetName(char* name, int i)
+{
+	int len = strlen(name);
+	char* alocName = calloc(len, sizeof(char));
+	strcpy(alocName, name);
+	return alocName;
+}
+void Initialize_Sentences()
+{
+	int SentenceOptions;
+	int i;
+	index.Command = 0;
+	index.Commands = 0;
+	index.Condition = 0;
+	index.Declaration = 0;
+	index.Declarations = 0;
+	index.Expression = 0;
+	index.Param_List = 0;
+	index.Program = 0;
+	index.Task_Definition = 0;
+	index.Task_Definitions = 0;
+
+	TokenMap[ParBegin] = SetName("ParBegin", ParBegin);
+	TokenMap[ParEnd] = SetName("ParEnd", ParEnd);
+	TokenMap[Task] = SetName("Task", Task);
+	TokenMap[Begin] = SetName("Begin", Begin);
+	TokenMap[End] = SetName("End", End);
+	TokenMap[Integer] = SetName("Integer", Integer);
+	TokenMap[Real] = SetName("Real", Real);
+	TokenMap[Do] = SetName("Do", Do);
+	TokenMap[Until] = SetName("Until", Until);
+	TokenMap[Od] = SetName("Od", Od);
+	TokenMap[Send] = SetName("Send", Send);
+	TokenMap[Accept] = SetName("Accept", Accept);
+	TokenMap[arOp] = SetName("arOp", arOp);
+	TokenMap[relOp] = SetName("relOp", relOp);
+	TokenMap[add] = SetName("add", add);
+	TokenMap[substract] = SetName("substract", substract);
+	TokenMap[multiply] = SetName("multiply", multiply);
+	TokenMap[devide] = SetName("devide", devide);
+	TokenMap[lessthan] = SetName("lessthan", lessthan);
+	TokenMap[morethan] = SetName("morethan", morethan);
+	TokenMap[lessorequal] = SetName("lessorequal", lessorequal);
+	TokenMap[moreorequal] = SetName("moreorequal", moreorequal);
+	TokenMap[equal] = SetName("equal", equal);
+	TokenMap[notequal] = SetName("notequal", notequal);
+	TokenMap[ID] = SetName("ID", ID);
+	TokenMap[Number] = SetName("Number", Number);
+	TokenMap[Colon] = SetName("Colon", Colon);
+	TokenMap[SemiColon] = SetName("SemiColon", SemiColon);
+	TokenMap[OR] = SetName("OR", OR);
+	TokenMap[assign] = SetName("assign", assign);
+	TokenMap[dot] = SetName("dot", dot);
+	TokenMap[OpenRBracket] = SetName("OpenRBracket", OpenRBracket);
+	TokenMap[CloseRBracket] = SetName("CloseRBracket", CloseRBracket);
+	TokenMap[OpenCBracket] = SetName("OpenCBracket", OpenCBracket);
+	TokenMap[EndCBracket] = SetName("EndCBracket", EndCBracket);
+	TokenMap[EmptyWord] = SetName("EmptyWord", EmptyWord);
+
+
+	SentenceOptions = 1;
+	Sentences[esProgram] = calloc(sizeof(Sentence), SentenceOptions);
+	for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esProgram][i]);
+	vector_add2(&Sentences[esProgram][0], Create_Word(ewtVariable, esTask_Definitions));
+	vector_add2(&Sentences[esProgram][0], Create_Word(ewtTerm, SemiColon));
+	vector_add2(&Sentences[esProgram][0], Create_Word(ewtTerm,ParBegin));
+	vector_add2(&Sentences[esProgram][0], Create_Word(ewtVariable, esTask_List));
+	vector_add2(&Sentences[esProgram][0], Create_Word(ewtTerm, ParEnd));
+	CurrentWord = Sentences[esProgram][0].words[0];
+
+	SentenceOptions = 1;
+	Sentences[esTask_Definitions] = calloc(sizeof(Sentence), SentenceOptions);
+	for (i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esTask_Definitions][i]);
+	vector_add2(&Sentences[esTask_Definitions][0], Create_Word(ewtVariable, esTask_Definition));
+	vector_add2(&Sentences[esTask_Definitions][0], Create_Word(ewtVariable, esTask_Definitions_));
+
+	SentenceOptions = 2;
+	Sentences[esTask_Definitions_] = calloc(sizeof(Sentence), SentenceOptions);
+	for (i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esTask_Definitions_][i]);
+	vector_add2(&Sentences[esTask_Definitions_][0], Create_Word(ewtTerm, SemiColon));
+	vector_add2(&Sentences[esTask_Definitions_][0], Create_Word(ewtVariable, esTask_Definition));
+	vector_add2(&Sentences[esTask_Definitions_][0], Create_Word(ewtVariable, esTask_Definitions_));
+	vector_add2(&Sentences[esTask_Definitions_][1], Create_Word(ewtTerm,  EmptyWord));
+
+	SentenceOptions = 1;
+	Sentences[esTask_Definition] = calloc(sizeof(Sentence), SentenceOptions);
+	for (i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esTask_Definition][i]);
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, Task));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, Begin));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtVariable, esDeclarations));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, OpenCBracket));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtVariable, esCommands));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, EndCBracket));
+	vector_add2(&Sentences[esTask_Definition][0], Create_Word(ewtTerm, End));
+
+	SentenceOptions = 1;
+	Sentences[esDeclarations] = calloc(sizeof(Sentence), SentenceOptions);
+	for (i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esDeclarations][i]);
+	vector_add2(&Sentences[esDeclarations][0], Create_Word(ewtVariable, esDeclaration));
+	vector_add2(&Sentences[esDeclarations][0], Create_Word(ewtVariable, esDeclarations_));
+
+
+	SentenceOptions = 2;
+	Sentences[esDeclarations_] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esDeclarations_][i]);
+	vector_add2(&Sentences[esDeclarations_][0], Create_Word(ewtTerm, SemiColon));
+	vector_add2(&Sentences[esDeclarations_][0], Create_Word(ewtVariable, esDeclarations));
+	vector_add2(&Sentences[esDeclarations_][1], Create_Word(ewtTerm, EmptyWord));
+
+	SentenceOptions = 2;
+	Sentences[esDeclaration] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esDeclaration][i]);
+	vector_add2(&Sentences[esDeclaration][0], Create_Word(ewtTerm, Integer));
+	vector_add2(&Sentences[esDeclaration][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esDeclaration][1], Create_Word(ewtTerm, Real));
+	vector_add2(&Sentences[esDeclaration][1], Create_Word(ewtTerm, ID));
+
+	SentenceOptions = 1;
+	Sentences[esTask_List] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esTask_List][i]);
+	vector_add2(&Sentences[esTask_List][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esTask_List][0], Create_Word(ewtVariable, esTask_List_));
+
+	SentenceOptions = 2;
+	Sentences[esTask_List_] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esTask_List_][i]);
+	vector_add2(&Sentences[esTask_List_][0], Create_Word(ewtTerm, OR));
+	vector_add2(&Sentences[esTask_List_][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esTask_List_][0], Create_Word(ewtVariable, esTask_List_));
+	vector_add2(&Sentences[esTask_List_][1], Create_Word(ewtTerm, EmptyWord));
+
+	SentenceOptions = 1;
+	Sentences[esCommands] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esCommands][i]);
+	vector_add2(&Sentences[esCommands][0], Create_Word(ewtVariable, esCommand));
+	vector_add2(&Sentences[esCommands][0], Create_Word(ewtVariable, esCommands_));
+
+	SentenceOptions = 2;
+	Sentences[esCommands_] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esCommands_][i]);
+	vector_add2(&Sentences[esCommands_][0], Create_Word(ewtTerm, SemiColon));
+	vector_add2(&Sentences[esCommands_][0], Create_Word(ewtTerm, esCommand));
+	vector_add2(&Sentences[esCommands_][0], Create_Word(ewtVariable, esCommands_));
+	vector_add2(&Sentences[esCommands_][1], Create_Word(ewtTerm, EmptyWord));
+
+	SentenceOptions = 5;
+	Sentences[esCommand] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esCommand][i]);
+	vector_add2(&Sentences[esCommand][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCommand][0], Create_Word(ewtTerm, equal));
+	vector_add2(&Sentences[esCommand][0], Create_Word(ewtVariable, esExpression));
+	vector_add2(&Sentences[esCommand][1], Create_Word(ewtTerm, Do));
+	vector_add2(&Sentences[esCommand][1], Create_Word(ewtVariable, esCommand));
+	vector_add2(&Sentences[esCommand][1], Create_Word(ewtTerm, Until));
+	vector_add2(&Sentences[esCommand][1], Create_Word(ewtVariable, esCondition));
+	vector_add2(&Sentences[esCommand][1], Create_Word(ewtTerm, Od));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, Send));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, dot));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, OpenRBracket));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtVariable, esParam_List));
+	vector_add2(&Sentences[esCommand][2], Create_Word(ewtTerm, CloseRBracket));
+
+	vector_add2(&Sentences[esCommand][3], Create_Word(ewtTerm, Accept));
+	vector_add2(&Sentences[esCommand][3], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCommand][3], Create_Word(ewtTerm, OpenRBracket));
+	vector_add2(&Sentences[esCommand][3], Create_Word(ewtVariable, esDeclarations));
+	vector_add2(&Sentences[esCommand][3], Create_Word(ewtTerm, CloseRBracket));
+
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtTerm, Begin));
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtVariable, esDeclarations));
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtTerm, OpenCBracket));
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtVariable, esCommands));
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtTerm, EndCBracket));
+	vector_add2(&Sentences[esCommand][4], Create_Word(ewtTerm, End));
+
+	SentenceOptions = 1;
+	Sentences[esParam_List] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esParam_List][i]);
+	vector_add2(&Sentences[esParam_List][0], Create_Word(ewtVariable, esExpression));
+	vector_add2(&Sentences[esParam_List][0], Create_Word(ewtVariable, esParam_List_));
+
+	SentenceOptions = 2;
+	Sentences[esParam_List_] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esParam_List_][i]);
+	vector_add2(&Sentences[esParam_List_][0], Create_Word(ewtTerm, SemiColon));
+	vector_add2(&Sentences[esParam_List_][0], Create_Word(ewtVariable, esParam_List));
+	vector_add2(&Sentences[esParam_List_][1], Create_Word(ewtTerm, EmptyWord));
+
+	SentenceOptions = 6;
+	Sentences[esExpression] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esExpression][i]);
+	vector_add2(&Sentences[esExpression][0], Create_Word(ewtTerm, Number));
+	vector_add2(&Sentences[esExpression][1], Create_Word(ewtTerm, Number));
+	vector_add2(&Sentences[esExpression][2], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esExpression][3], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esExpression][3], Create_Word(ewtTerm, arOp));
+	vector_add2(&Sentences[esExpression][3], Create_Word(ewtVariable, esExpression));
+	/*vector_add2(&Sentences[esExpression][4], Create_Word(ewtTerm, Number));
+	vector_add2(&Sentences[esExpression][4], Create_Word(ewtVariable, esExpression));
+	vector_add2(&Sentences[esExpression][5], Create_Word(ewtTerm, Number));
+	vector_add2(&Sentences[esExpression][5], Create_Word(ewtVariable, esExpression));*/
+
+	SentenceOptions = 1;
+	Sentences[esCondition] = calloc(sizeof(Sentence), SentenceOptions);
+	 for( i = 0; i < SentenceOptions; i++) vector_init2(&Sentences[esCondition][i]);
+	vector_add2(&Sentences[esCondition][0], Create_Word(ewtTerm, OpenRBracket));
+	vector_add2(&Sentences[esCondition][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCondition][0], Create_Word(ewtTerm, relOp));
+	vector_add2(&Sentences[esCondition][0], Create_Word(ewtTerm, ID));
+	vector_add2(&Sentences[esCondition][0], Create_Word(ewtTerm, CloseRBracket));
+
+}
+#pragma endregion
+
+
+char* back_token()
+{
+	if (i > 0)
+	{
+		i--;
+		return vector_get(&Tokens, i);
+	}
+	return NULL;
 }
 
 char* next_token()
 {
 	int type;
 	i++;
-
-	if (maxi < i)
+	if (Tokens.count < i)
 	{
 		type = yylex();
 
@@ -1934,44 +2233,156 @@ char* next_token()
 			return NULL;
 		}
 		maxi = i;
-	//	create_and_store_token(yytext,type, line);		
 	}
 
-	return vector_get(&Tokens, i);
+	return vector_get(&Tokens, i-1);
 }
 
-char* back_token()
+void create_and_store_token(char* s, int type, int line)
 {
-	if (i > 0 )
-	{
-		i--;
-		return vector_get(&Tokens, i);
-	}
-	return NULL;
+	int Len = (strlen(s) + 1);
+
+	Token* t = (Token*)calloc(1, sizeof(Token));
+	t->type = type;
+	t->line = line;
+	t->a = (char*)calloc(Len, sizeof(char));
+	strcpy(t->a, s);
+	vector_add(&Tokens, t);
 }
 
-void clear_vector()
+// assignment 2
+Word* Create_Word(int type, int tokenType)
 {
-	int i;
-	for(i = 0; i < Tokens.total; i++)
-	{
-		free(Tokens.items[i]->a);
-		free(Tokens.items[i]);
-	}
-	vector_free(&Tokens);
+	Word* t = (Word*)calloc(1, sizeof(Word));
+	t->type = type;
+	t->tokenType = tokenType;
+	return t;
 }
+
+
+int Get_Next_Expected_Token()
+{
+	switch (SentenceIndex)
+	{
+	case esCommand: { return fCommand();   }
+	case esCommands: { return fCommands();   }
+	case esCommands_: { return fCommands_();   }
+	case esCondition: { return fCondition();   }
+	case esDeclaration: { return fDeclaration();   }
+	case esDeclarations: { return fDeclarations();   }
+	case esDeclarations_: { return fDeclarations_();   }
+	case esExpression: { return fExpression();	  }
+	case esParam_List: { return fParam_List();	  }
+	case esParam_List_: { return fParam_List_();   }
+	case esProgram: { return fProgram();   }
+	case esTask_Definition: { return fTask_Definition();   }
+	case esTask_Definitions: { return fTask_Definitions();   }
+	case esTask_Definitions_: { return fTask_Definitions_();   }
+	case esTask_List: { return fTask_List();   }
+	case esTask_List_: { return fTask_List_();   }
+	default:break;
+	}
+}
+int Match(int type, int* a_index,int SentenceOptions)
+{
+	int i_option;
+	int c_option=-1;
+	int i_word;
+	int returnValue;
+	//SentenceIndex = type;
+
+	// find the correct option
+	for (i_option = 0; i_option < SentenceOptions; i_option++)
+	{
+		for (i_word = 0; i_word < Sentences[type][i_option].count; i_word++)
+		{
+			if (Sentences[type][i_option].words[(*a_index)]->type == ewtTerm)
+			{
+				if (Sentences[type][i_option].words[(*a_index)++]->tokenType == token->type)
+				{
+					c_option = i_option; break;
+				}
+			}
+			else
+			{
+				switch (Sentences[type][i_option].words[(*a_index)]->tokenType)
+				{
+				case esCommand: { index.Command = 0; /*----------------------*/	option.Command = 0; /*------------*/ returnValue = fCommand(); if (returnValue != -1) c_option=returnValue; break; }
+				case esCommands: { index.Commands = 0; /*--------------------*/	option.Commands = 0; /*-----------*/ returnValue = fCommands(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esCommands_: { index.Commands_ = 0; /*------------------*/	option.Commands_ = 0; /*----------*/ returnValue = fCommands_(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esCondition: { index.Condition = 0; /*------------------*/	option.Condition = 0; /*----------*/ returnValue = fCondition(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esDeclaration: { index.Declaration = 0; /*--------------*/	option.Declaration = 0; /*--------*/ returnValue = fDeclaration(); if (returnValue != -1) c_option=returnValue; break; }
+				case esDeclarations: { index.Declarations = 0; /*------------*/	option.Declarations = 0; /*-------*/ returnValue = fDeclarations(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esDeclarations_: { index.Declarations_ = 0; /*----------*/	option.Declarations_ = 0; /*------*/ returnValue = fDeclarations_(); if (returnValue!= -1) c_option=returnValue;  break;  }
+				case esExpression: { index.Expression = 0; /*----------------*/	option.Expression = 0; /*---------*/ returnValue = fExpression(); if (returnValue !=-1) c_option=returnValue;   break; }
+				case esParam_List: { index.Param_List = 0; /*----------------*/	option.Param_List = 0; /*---------*/ returnValue = fParam_List(); if (returnValue !=-1) c_option=returnValue;   break; }
+				case esParam_List_: { index.Param_List_ = 0; /*--------------*/	option.Param_List_ = 0; /*--------*/ returnValue = fParam_List_(); if (returnValue != -1) c_option=returnValue;   break; }
+				case esProgram: { index.Program = 0; /*----------------------*/	option.Program = 0; /*------------*/ returnValue = fProgram(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esTask_Definition: { index.Task_Definition = 0; /*------*/	option.Task_Definition = 0; /*----*/ returnValue = fTask_Definition(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esTask_Definitions: { index.Task_Definitions = 0; /*----*/	option.Task_Definitions = 0; /*---*/ returnValue = fTask_Definitions(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esTask_Definitions_: { index.Task_Definitions_ = 0; /*--*/	option.Task_Definitions_ = 0; /*--*/ returnValue = fTask_Definitions_(); if (returnValue != -1) c_option=returnValue;  break; }
+				case esTask_List: { index.Task_List = 0; /*------------------*/	option.Task_List = 0; /*----------*/ returnValue = fTask_List(); if (returnValue != -1) c_option=returnValue;  break;  }
+				case esTask_List_: { index.Task_List_ = 0; /*----------------*/	option.Task_List_ = 0; /*---------*/ returnValue = fTask_List_(); if (returnValue !=-1) c_option=returnValue;   break;  }
+				default:break;
+				}
+				if (returnValue == -1)
+					exit(0);
+			}
+		}
+	}
+	for (i_word = 0; i_word < Sentences[type][c_option].count; i_word++)
+	{
+		if (Sentences[type][c_option].words[(*a_index)]->type == ewtTerm)
+		{
+			if (Sentences[type][c_option].words[(*a_index)++]->tokenType == token->type)
+				token = next_token();
+			//return Sentences[type][fi].words[(*a_index)++]->tokenType;
+		}
+		else
+		{
+			switch (Sentences[type][c_option].words[(*a_index)]->tokenType)
+			{
+			case esCommand: { index.Command = 0; /*----------------------*/	option.Command = 0; /*------------*/ returnValue = fCommand();			/**/ break; }
+			case esCommands: { index.Commands = 0; /*--------------------*/	option.Commands = 0; /*-----------*/ returnValue = fCommands();			/**/ break; }
+			case esCommands_: { index.Commands_ = 0; /*------------------*/	option.Commands_ = 0; /*----------*/ returnValue = fCommands_();		/**/ break; }
+			case esCondition: { index.Condition = 0; /*------------------*/	option.Condition = 0; /*----------*/ returnValue = fCondition();		/**/ break; }
+			case esDeclaration: { index.Declaration = 0; /*--------------*/	option.Declaration = 0; /*--------*/ returnValue = fDeclaration();		/**/ break; }
+			case esDeclarations: { index.Declarations = 0; /*------------*/	option.Declarations = 0; /*-------*/ returnValue = fDeclarations();		/**/ break; }
+			case esDeclarations_: { index.Declarations_ = 0; /*----------*/	option.Declarations_ = 0; /*------*/ returnValue = fDeclarations_();	/**/ break;  }
+			case esExpression: { index.Expression = 0; /*----------------*/	option.Expression = 0; /*---------*/ returnValue = fExpression();		/**/ break; }
+			case esParam_List: { index.Param_List = 0; /*----------------*/	option.Param_List = 0; /*---------*/ returnValue = fParam_List();		/**/ break; }
+			case esParam_List_: { index.Param_List_ = 0; /*--------------*/	option.Param_List_ = 0; /*--------*/ returnValue = fParam_List_();		/**/ break; }
+			case esProgram: { index.Program = 0; /*----------------------*/	option.Program = 0; /*------------*/ returnValue = fProgram();			/**/ break; }
+			case esTask_Definition: { index.Task_Definition = 0; /*------*/	option.Task_Definition = 0; /*----*/ returnValue = fTask_Definition();	/**/ break; }
+			case esTask_Definitions: { index.Task_Definitions = 0; /*----*/	option.Task_Definitions = 0; /*---*/ returnValue = fTask_Definitions(); /**/ break; }
+			case esTask_Definitions_: { index.Task_Definitions_ = 0; /*--*/	option.Task_Definitions_ = 0; /*--*/ returnValue = fTask_Definitions_();/**/ break; }
+			case esTask_List: { index.Task_List = 0; /*------------------*/	option.Task_List = 0; /*----------*/ returnValue = fTask_List();		/**/ break;  }
+			case esTask_List_: { index.Task_List_ = 0; /*----------------*/	option.Task_List_ = 0; /*---------*/ returnValue = fTask_List_();		/**/ break;  }
+			default:break;
+			}
+			// broke from switch
+			//SentenceIndex = type;
+		}
+	}
+	token = next_token();
+	if (token == NULL) return 0;
+}
+int SentenceIndex = esProgram;
 
 void main()
 {
  FILE* testIn; 
  Token* token;
  int choice;
+ int ExpectedType;
+
+ Initialize_Sentences();
  vector_init(&Tokens);
  printf("Legit too autistic to get a job, so i check compilation homework\n");
 
  printf("choose file: 1 or 2:\n");
  scanf("%d",&choice);
-
+ 
  if (choice == 1)
  {
 	fopen_s(&testIn, TEST_IN_FILE1, "r");
@@ -1984,80 +2395,34 @@ void main()
  }
  else
  {
-	return 0;
+	return;
  }
   
  yyin = testIn;
  yyout = testOut;
 
- while(next_token() != NULL);
+ fProgram();
+// while ((token = next_token()) != NULL)
+// {
+//	 if (token == 50) continue;
+//	 ExpectedType = Get_Next_Expected_Token();
+//	 if (ExpectedType == token->type)
+//	 {
+//#define printGood(_expectedToken) \
+//			printf(" Received token : '%s' as expected at line %d \n ", _expectedToken, line);
+//		 printGood(TokenMap[ExpectedType])
+//	 }
+//	 else
+//	 {
+//#define printBad(_expectedToken,_receivedToken) \
+//			printf(" !!Expected token '%s' at line %d; received '%s' \n", _expectedToken, line, _receivedToken);
+//		 printBad(TokenMap[ExpectedType], TokenMap[token->type])
+//	 }
+// }
  
 fclose(testIn);
 fclose(testOut);
 
 clear_vector();
+system("pause");
 }
-/*
-PROGRAM  TASK_DEFINITIONS; parbegin TASK_LIST parend
-
-TASK_DEFINITIONS  TASK_DEFINITION TASK_DEFINITIONS_REC
-
-TASK_DEFINITIONS_REC  ; TASK_DEFINITION TASK_DEFINITIONS_REC
-
-| Ɛ
-
-TASK_DEFINITION  task id begin DECLARATIONS { COMMANDS } end
-
-DECLARATIONS  DECLARATION DECLARATIONS_HELP
-
-DECLARATIONS_HELP  Ɛ |
-
-; DECLARATIONS
-
-DECLARATION  integer id |
-
-real id
-
-TASK_LIST  task_id TASK_LIST_REC
-
-TASK_LIST_REC  || task_id TASK_LIST_REC |
-
-Ɛ
-
-COMMANDS  COMMAND COMMANDS_REC
-
-COMMANDS_REC  ; COMMAND COMMANDS_REC |
-
-Ɛ
-
-COMMAND  id = EXPRESSION |
-
-do COMMANDS until CONDITION od |
-
-send task_id . signal_id (PARAM_LIST) |
-
-accept signal_id (DECLARATIONS) |
-
-begin DECLARATIONS { COMMANDS } end
-
-PARAM_LIST  EXPRESSION PARAM_LIST_HELP
-
-PARAM_LIST_HELP  Ɛ |
-
-, PARAM_LIST
-
-
-
-EXPRESSION  int_num |
-
-real_num |
-
-id |
-
-id binary_ar_op EXPRESSION |
-
--EXPRESSION |
-
-+EXPRESSION
-
-CONDITION  (id rel_op id)*/

@@ -26,6 +26,7 @@
     <ClCompile Include="tProgram.c" />
     <ClCompile Include="tTask_Definition.c" />
     <ClCompile Include="tTask_Definitions.c" />
+    <ClCompile Include="tTask_List.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
